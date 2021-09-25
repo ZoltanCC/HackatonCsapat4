@@ -66,6 +66,7 @@ namespace HackatonCsapat4.Service
                 FileStream fs = new FileStream(_path, FileMode.Open);
                 // Read opetation index pointer
                 int readIndex = 0;
+
                 // Opening a StreamReader for the FileStream we created
                 using (StreamReader sr = new StreamReader(fs))
                 {
@@ -87,9 +88,8 @@ namespace HackatonCsapat4.Service
                                 break;
                             case 2:
                                 int[] inputArr = ConvertInputToArray(line);
-                                int toEnd = sr.Peek();
-                                _nodeConnections = new int[toEnd][];
-                                for (int i = 0; i < toEnd; i++)
+                                _nodeConnections = new int[_nodeLength][];
+                                for (int i = 0; i < _nodeLength; i++)
                                 {
                                     if (i != 0) inputArr = ConvertInputToArray(sr.ReadLine());
                                     _nodeConnections[i] = new int[inputArr.Length];
